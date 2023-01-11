@@ -6,7 +6,7 @@ type Props = {};
 
 export default function HomeScreen({}: Props) {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap h-screen overflow-scroll">
       <HeroWeatherDetails />
       <ExtraWeatherDetails />
     </div>
