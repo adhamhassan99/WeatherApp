@@ -2,6 +2,7 @@ import React from "react";
 import DayWeatherCard from "../DayWeatherCard/DayWeatherCard";
 import { FakeWeather } from "../../fakers/weatherFaker.js";
 import MainHeader from "../MainHeader/MainHeader";
+import { Outlet } from "react-router-dom";
 type Props = {};
 
 export default function ExtraWeatherDetails({}: Props) {
@@ -15,6 +16,7 @@ export default function ExtraWeatherDetails({}: Props) {
           );
         })}
       </div>
+      <Outlet />
     </div>
   );
 }
