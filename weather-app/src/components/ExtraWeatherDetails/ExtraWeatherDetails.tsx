@@ -6,11 +6,13 @@ type Props = {};
 
 export default function ExtraWeatherDetails({}: Props) {
   return (
-    <div className="flex flex-col flex-1 bg-lightGrey px-16 py-14 flex-wrap">
+    <div className="flex flex-col flex-1 bg-lightGrey px-24 py-14 flex-wrap">
       <MainHeader />
       <div className="flex gap-2 flex-wrap h-min justify-between">
         {FakeWeather.map((item) => {
-          return <DayWeatherCard day={item.day} high={15} low={-3} />;
+          return (
+            <DayWeatherCard day={item.day} high={item.high} low={item.low} />
+          );
         })}
       </div>
     </div>

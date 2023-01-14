@@ -8,12 +8,13 @@ import {
   faCloud,
   faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 type Props = {};
 
 export default function HeroWeatherDetails({}: Props) {
   return (
-    <div className="flex h-full flex-col px-14 py-14 justify-between max-sm:items-center">
+    <div className="flex h-full flex-col px-14 py-14 justify-between">
       <SearchBar />
       <div className="w-64 flex aspect-video">
         <img src={Cloudy} alt="" className="object-scale-down" />

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { faCloudSun } from "@fortawesome/free-solid-svg-icons";
 
-type Props = { day: string; icon: string; high: number; low: number };
+type Props = { day: string; icon?: string; high: number; low: number };
 
 export default function DayWeatherCard({ day, high, icon, low }: Props) {
   return (

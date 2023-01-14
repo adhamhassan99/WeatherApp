@@ -10,7 +10,7 @@ type Props = {
 
 export default function WeatherStatus({ status, icon, color }: Props) {
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-3 items-center justify-self-start">
       <FontAwesomeIcon color={color} icon={icon} />
       <div className="capitalize">{status}</div>
     </div>
