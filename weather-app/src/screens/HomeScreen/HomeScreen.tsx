@@ -1,7 +1,7 @@
 import React from "react";
 import HeroWeatherDetails from "../../components/HeroWeatherDetails/HeroWeatherDetails";
 import ExtraWeatherDetails from "../../components/ExtraWeatherDetails/ExtraWeatherDetails";
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect } from "react-router-dom";
 
 type Props = {};
 
