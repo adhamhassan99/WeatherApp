@@ -4,12 +4,33 @@ import MainHeader from "../MainHeader/MainHeader";
 import { Outlet } from "react-router-dom";
 import { FakeWeather } from "../../fakers/weatherFaker.js";
 import Card from "../Card/Card";
-
+import {
+  UilThumbsUp,
+  UilThumbsDown,
+  UilFeedback,
+} from "@iconscout/react-unicons";
 type Props = {};
 
 export default function ExtraWeatherDetails({}: Props) {
+  const getHumidityRating = (rating: number) => {
+    return rating >= 0 && rating <= 20
+      ? "low"
+      : rating > 20 && rating <= 40
+      ? "normal"
+      : "high";
+  };
+  const getIcon = (range) => {
+    return range === "low" ? (
+      <UilThumbsUp size={25} />
+    ) : range === "normal" ? (
+      <UilFeedback size={25} />
+    ) : (
+      <UilThumbsDown size={25} />
+    );
+  };
+
   return (
-    <div className="flex flex-col flex-1 bg-lightGrey px-24 py-14 overflow-y-auto ">
+    <div className="flex flex-col flex-1 bg-lightGrey px-24 py-14 ">
       <MainHeader />
       <Outlet context={{ FakeWeather }} />
       <div className="text-4xl capitalize mt-20">today's highlights</div>
@@ -30,7 +51,17 @@ export default function ExtraWeatherDetails({}: Props) {
         </div>
         <div className="flex justify-between flex-1  gap-20">
           <Card title="Humidity">
-            <div className="">aaa</div>
+            <div className="flex flex-col justify-between h-full">
+              <div className="text-5xl flex mt-8">
+                12 <span className="text-xl font-semibold ml-1">%</span>
+              </div>
+              <div className="flex items-baseline gap-3">
+                <div className="mb-3 text-2xl capitalize">
+                  {getHumidityRating(80)}
+                </div>
+                {getIcon(getHumidityRating(10))}
+              </div>
+            </div>
           </Card>
           <Card title="Visibility">
             <div className="">aaa</div>
