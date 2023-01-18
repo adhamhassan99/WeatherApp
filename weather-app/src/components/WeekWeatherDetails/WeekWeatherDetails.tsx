@@ -10,7 +10,11 @@ export default function WeekWeatherDetails({}: Props) {
     <div className="flex gap-2 flex-wrap h-min justify-between">
       {FakeWeather.map((item) => {
         return (
-          <DayWeatherCard day={item.day} high={item.high} low={item.low} />
+          <DayWeatherCard
+            day={item.day.slice(0, 3)}
+            high={item.high}
+            low={item.low}
+          />
         );
       })}
     </div>

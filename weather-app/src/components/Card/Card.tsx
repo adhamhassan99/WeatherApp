@@ -8,7 +8,9 @@ type Props = {
 
 export default function Card({ children, title = "test", className }: Props) {
   return (
-    <div className={`bg-white flex-1 rounded-2xl px-10 py-10 ${className}`}>
+    <div
+      className={`bg-white w-1/4 h-60 rounded-2xl px-10 py-10 shadow-xl  ${className}`}
+    >
       <div className="text-2xl text-secondaryText capitalize">{title}</div>
       {children}
     </div>

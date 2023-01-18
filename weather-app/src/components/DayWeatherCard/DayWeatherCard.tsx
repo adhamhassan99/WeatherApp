@@ -6,7 +6,7 @@ type Props = { day: string; icon?: string; high: number; low: number };
 
 export default function DayWeatherCard({ day, high, icon, low }: Props) {
   return (
-    <div className="flex flex-col bg-white h-min px-8 py-4 rounded-2xl gap-3 items-center">
+    <div className="flex flex-col bg-white h-min px-8 py-4 rounded-2xl gap-6 items-center shadow-xl">
       <div className="day capitalize text-2xl">{day}</div>
       <FontAwesomeIcon icon={faCloudSun} />
       <div className="flex gap-1">

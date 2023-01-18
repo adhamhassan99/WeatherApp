@@ -14,7 +14,7 @@ export default function MainHeader({}: Props) {
   };
 
   return (
-    <div className="flex mb-24 justify-between items-center">
+    <div className="flex mb-14 justify-between items-center">
       <div className="daySelector flex gap-4">
         <NavLink
           style={({ isActive }) =>
