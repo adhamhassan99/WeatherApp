@@ -1,15 +1,22 @@
 import React from "react";
 import HeroWeatherDetails from "../../components/HeroWeatherDetails/HeroWeatherDetails";
 import ExtraWeatherDetails from "../../components/ExtraWeatherDetails/ExtraWeatherDetails";
-import { Outlet, redirect } from "react-router-dom";
+import { useFetchWeatherData } from "../../services/hooks/useFetchWeatherData";
 
 type Props = {};
 
-export default function HomeScreen({}: Props) {
+const HomeScreen = ({}: Props) => {
+  try {
+    const { data } = useFetchWeatherData();
+  } catch (error) {
+    console.log(error);
+  }
   return (
     <div className="flex flex-wrap h-screen justify-center">
       <HeroWeatherDetails />
       <ExtraWeatherDetails />
     </div>
   );
-}
+};
+
+export default HomeScreen;
