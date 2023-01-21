@@ -9,10 +9,31 @@ import {
   faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
 export default function HeroWeatherDetails({}: Props) {
+  const city = useSelector(
+    (state) => state.temperature.weather.location.country
+  );
+  const last_updated_epoch = useSelector(
+    (state) => state.temperature.weather.location.localtime_epoch
+  );
+  const { temp_c, temp_f } = useSelector(
+    (state) => state.temperature.weather.current
+  );
+  const date = new Date(last_updated_epoch * 1000);
+  const tempMes = useSelector((state) => state.temperature.temp);
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   return (
     <div className="flex h-full w-1/4 flex-col pl-20 pr-14 py-14 justify-between">
       <SearchBar />
@@ -20,7 +41,11 @@ export default function HeroWeatherDetails({}: Props) {
         <img src={Cloudy} alt="" className="object-scale-down" />
       </div>
 
-      <HeroTemp temp={20} day="monday" time="12:00" />
+      <HeroTemp
+        temp={tempMes === "c" ? temp_c : temp_f}
+        day={days[date.getDay()]}
+        time={`${date.getHours()}:${date.getMinutes()}`}
+      />
       <div className="border border-lightGrey mr-10"></div>
       <div className="gap-5 flex flex-col">
         <WeatherStatus icon={faCloud} status="cloudy" />
@@ -30,7 +55,7 @@ export default function HeroWeatherDetails({}: Props) {
           color="#4050d2"
         />
       </div>
-      <CountryImageBox country="new York" />
+      <CountryImageBox country={city} />
     </div>
   );
 }

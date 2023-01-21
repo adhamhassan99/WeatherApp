@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   temp: "c",
+  queryKey: "Egypt",
+  weather: null,
 };
 
 export const temperatureSlice = createSlice({
@@ -11,10 +13,17 @@ export const temperatureSlice = createSlice({
     setTempType: (state, action) => {
       state.temp = action.payload;
     },
+    setWeatherData: (state, action) => {
+      state.weather = action.payload;
+    },
+    setQueryKey: (state, action) => {
+      state.queryKey = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTempType } = temperatureSlice.actions;
+export const { setTempType, setWeatherData, setQueryKey } =
+  temperatureSlice.actions;
 
 export default temperatureSlice.reducer;

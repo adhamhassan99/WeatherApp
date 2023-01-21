@@ -7,7 +7,10 @@ export const mainHttpClient = axios.create({
 });
 
 const defaultConfig = async (config: any) => {
-  config.headers = {};
+  config.headers = {
+    "Content-Type": "aplication/json",
+    "Accept-Language": "en-US,en;q=0,ar-EG;q=0.8,ar,q=0.7",
+  };
   return config;
 };
 

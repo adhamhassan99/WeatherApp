@@ -4,6 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 export const useFetchWeatherData = () => {
   return useQuery({
     queryKey: ["test"],
-    queryFn: () => fetchWeatherData(),
+    queryFn: () => fetchWeatherData.getWeatherData(),
   });
 };
