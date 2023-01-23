@@ -32,6 +32,13 @@ const HomeScreen = ({}: Props) => {
       </div>
     );
   }
+  if (isError) {
+    return (
+      <div>
+        <h1>Error</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-wrap h-screen justify-center">

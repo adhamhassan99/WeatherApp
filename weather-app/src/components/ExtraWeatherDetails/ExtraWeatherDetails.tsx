@@ -19,9 +19,11 @@ import {
   UilArrowLeft,
 } from "@iconscout/react-unicons";
 import { useSelector } from "react-redux";
-type Props = {};
+type Props = {
+  isLoading?: boolean;
+};
 
-export default function ExtraWeatherDetails({}: Props) {
+export default function ExtraWeatherDetails({ isLoading }: Props) {
   const getHumidityRating = (rating: number) => {
     return rating >= 0 && rating <= 20
       ? "low"

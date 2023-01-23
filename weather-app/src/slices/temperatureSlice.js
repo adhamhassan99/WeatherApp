@@ -4,6 +4,7 @@ const initialState = {
   temp: "c",
   queryKey: "Egypt",
   weather: null,
+  isLoading: false,
 };
 
 export const temperatureSlice = createSlice({
@@ -19,11 +20,14 @@ export const temperatureSlice = createSlice({
     setQueryKey: (state, action) => {
       state.queryKey = action.payload;
     },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setTempType, setWeatherData, setQueryKey } =
+export const { setTempType, setWeatherData, setQueryKey, setLoading } =
   temperatureSlice.actions;
 
 export default temperatureSlice.reducer;
