@@ -19,6 +19,7 @@ import {
   UilArrowLeft,
 } from "@iconscout/react-unicons";
 import { useSelector } from "react-redux";
+import UVGaugeChart from "../UVGaugeChart/UVGaugeChart";
 type Props = {
   isLoading?: boolean;
 };
@@ -66,11 +67,12 @@ export default function ExtraWeatherDetails({ isLoading }: Props) {
     <div className="flex flex-col flex-1 bg-lightGrey px-24 py-14 h-screen">
       <MainHeader />
       <div className=" overflow-y-auto">
-        <Outlet context={{ FakeWeather }} />
+        <Outlet />
         <div className="text-4xl capitalize mt-16">today's highlights</div>
         <div className=" flex-1 mt-10 flex flex-col gap-10">
           <div className="flex justify-between gap-20 flex-1">
             <Card title="UV Index">
+              <UVGaugeChart uv={uv} />
               <div className="">{uv}</div>
             </Card>
             <Card title="Wind status">
