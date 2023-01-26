@@ -10,7 +10,7 @@ export default function SearchBar({}: Props) {
   const [value, setValue] = useState(queryKey);
   const dispatch = useDispatch();
   // dispatch(setQueryKey(event.target.value))
-  const handleEnter = (event: React.KeyboardEvent) => {
+  const handleEnter = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       dispatch(setQueryKey(event.target.value));
     }
