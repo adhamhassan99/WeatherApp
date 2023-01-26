@@ -20,12 +20,9 @@ import {
 } from "@iconscout/react-unicons";
 import { useSelector } from "react-redux";
 import UVGaugeChart from "../UVGaugeChart/UVGaugeChart";
-type Props = {
-  isLoading?: boolean;
-};
 
-export default function ExtraWeatherDetails({ isLoading }: Props) {
-  const getHumidityRating = (rating: number) => {
+export default function ExtraWeatherDetails(isLoading) {
+  const getHumidityRating = (rating) => {
     return rating >= 0 && rating <= 20
       ? "low"
       : rating > 20 && rating <= 40
