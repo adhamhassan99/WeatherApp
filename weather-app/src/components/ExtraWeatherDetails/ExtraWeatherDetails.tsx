@@ -44,6 +44,9 @@ export default function ExtraWeatherDetails({ isLoading }: Props) {
   const { humidity, uv, wind_kph, wind_dir } = useSelector(
     (state) => state.temperature.weather.current
   );
+  const { sunrise, sunset } = useSelector(
+    (state) => state.temperature.weather.forecast.forecastday[0].astro
+  );
   const iconMap = {
     N: <UilArrowUp size={40} />,
     S: <UilArrowDown size={40} />,
@@ -62,6 +65,7 @@ export default function ExtraWeatherDetails({ isLoading }: Props) {
     WSW: <UilArrowDownLeft size={40} />,
     SSW: <UilArrowDownLeft size={40} />,
   };
+  // console.log({ x });
 
   return (
     <div className="flex flex-col flex-1 bg-lightGrey px-24 py-14 h-screen">
@@ -72,8 +76,10 @@ export default function ExtraWeatherDetails({ isLoading }: Props) {
         <div className=" flex-1 mt-10 flex flex-col gap-10">
           <div className="flex justify-between gap-20 flex-1">
             <Card title="UV Index">
-              <UVGaugeChart uv={uv} />
-              <div className="">{uv}</div>
+              <div className="relative mt-6">
+                <UVGaugeChart uv={uv} />
+                <div className="absolute bottom-2 left-24 text-6xl">{uv}</div>
+              </div>
             </Card>
             <Card title="Wind status">
               <div className="flex gap-2">
@@ -85,8 +91,21 @@ export default function ExtraWeatherDetails({ isLoading }: Props) {
                 <div className="font-medium text-3xl">{wind_dir}</div>
               </div>
             </Card>
-            <Card title="Sunrise & Sunset">
-              <div className="">aaa</div>
+            <Card title="Sunrise & Sunset" className="flex flex-col gap-5">
+              <div className="flex flex-col gap-7">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
+                    <UilArrowUp color="white" />
+                  </div>
+                  <div className="text-2xl">{sunrise}</div>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
+                    <UilArrowDown color="white" />
+                  </div>
+                  <div className="text-2xl">{sunset}</div>
+                </div>
+              </div>
             </Card>
           </div>
           <div className="flex justify-between flex-1  gap-20">

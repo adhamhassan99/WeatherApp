@@ -10,9 +10,9 @@ export default function UVGaugeChart({ uv }: Props) {
     <GaugeChart
       id="uv-gauge-chart"
       nrOfLevels={2}
-      arcsLength={[uv / 20, (20 - uv) / 20]}
+      arcsLength={[uv / 10, (10 - uv) / 10]}
       colors={["#ffbf5e", "#efefef"]}
-      percent={uv / 20}
+      percent={uv / 10}
       arcPadding={0.02}
       cornerRadius={0}
       needleColor="transparent"

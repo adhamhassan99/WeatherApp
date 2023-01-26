@@ -7,10 +7,12 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { setWeatherData } from "../../slices/temperatureSlice";
 import { useDispatch, useSelector } from "react-redux";
-
 type Props = {};
 
 const HomeScreen = ({}: Props) => {
+  // const loc = navigator.geolocation.getCurrentPosition((pos) =>
+  //   console.log(pos)
+  // );
   const dispatch = useDispatch();
   const { queryKey } = useSelector((state) => state.temperature);
 
