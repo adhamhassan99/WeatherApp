@@ -72,7 +72,7 @@ export default function ExtraWeatherDetails(isLoading) {
         <div className="text-4xl capitalize mt-16 mb-10">
           today's highlights
         </div>
-        <div className="flex gap-20 flex-1 justify-center">
+        <div className="flex gap-10 flex-1 justify-center flex-wrap">
           <Card title="UV Index" className="relativ">
             <div className="relative mt-6">
               <UVGaugeChart uv={uv} />
