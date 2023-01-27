@@ -27,7 +27,7 @@ export default function HeroWeatherDetails({}: Props) {
   const date = new Date(last_updated_epoch * 1000);
   const tempMes = useSelector((state) => state.temperature.temp);
   return (
-    <div className="flex h-full w-1/4 flex-col pl-20 pr-14 py-14 justify-between">
+    <div className="flex h-full m-w-1/4 flex-col pl-20 pr-14 py-14 justify-between">
       <SearchBar />
       <div className="w-64 flex aspect-video">
         <img src={Cloudy} alt="" className="object-scale-down" />

@@ -9,7 +9,7 @@ type Props = {
 export default function Card({ children, title = "test", className }: Props) {
   return (
     <div
-      className={`bg-white w-1/4 h-60 rounded-2xl px-10 py-10 shadow-xl  ${className}`}
+      className={`bg-white w-80 h-64 rounded-2xl px-10 py-10 shadow-xl container  ${className}`}
     >
       <div className="text-2xl text-secondaryText capitalize">{title}</div>
       {children}

@@ -69,64 +69,62 @@ export default function ExtraWeatherDetails(isLoading) {
       <MainHeader />
       <div className=" overflow-y-auto">
         <Outlet />
-        <div className="text-4xl capitalize mt-16">today's highlights</div>
-        <div className=" flex-1 mt-10 flex flex-col gap-10">
-          <div className="flex justify-between gap-20 flex-1">
-            <Card title="UV Index">
-              <div className="relative mt-6">
-                <UVGaugeChart uv={uv} />
-                <div className="absolute bottom-2 left-24 text-6xl">{uv}</div>
-              </div>
-            </Card>
-            <Card title="Wind status">
-              <div className="flex gap-2">
-                <div className="text-6xl mt-7 font-medium">{wind_kph}</div>
-                <div className="mt-12 font-medium text-3xl">km/h</div>
-              </div>
-              <div className="flex items-center mt-6">
-                {iconMap[wind_dir]}
-                <div className="font-medium text-3xl">{wind_dir}</div>
-              </div>
-            </Card>
-            <Card title="Sunrise & Sunset" className="flex flex-col gap-5">
-              <div className="flex flex-col gap-7">
-                <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
-                    <UilArrowUp color="white" />
-                  </div>
-                  <div className="text-2xl">{sunrise}</div>
+        <div className="text-4xl capitalize mt-16 mb-10">
+          today's highlights
+        </div>
+        <div className="flex gap-20 flex-1 justify-center">
+          <Card title="UV Index" className="relativ">
+            <div className="relative mt-6">
+              <UVGaugeChart uv={uv} />
+              <div className="absolute bottom-2 left-24 text-6xl">{uv}</div>
+            </div>
+          </Card>
+          <Card title="Wind status">
+            <div className="flex gap-2">
+              <div className="text-6xl mt-7 font-medium">{wind_kph}</div>
+              <div className="mt-12 font-medium text-3xl">km/h</div>
+            </div>
+            <div className="flex items-center mt-6">
+              {iconMap[wind_dir]}
+              <div className="font-medium text-3xl">{wind_dir}</div>
+            </div>
+          </Card>
+          <Card title="Sunrise & Sunset" className="flex flex-col gap-5">
+            <div className="flex flex-col gap-7">
+              <div className="flex items-center gap-5">
+                <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
+                  <UilArrowUp color="white" />
                 </div>
-                <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
-                    <UilArrowDown color="white" />
-                  </div>
-                  <div className="text-2xl">{sunset}</div>
-                </div>
+                <div className="text-2xl">{sunrise}</div>
               </div>
-            </Card>
-          </div>
-          <div className="flex justify-between flex-1  gap-20">
-            <Card title="Humidity">
-              <div className="flex flex-col justify-between h-full">
-                <div className="text-5xl flex mt-8">
-                  {humidity}
-                  <span className="text-xl font-semibold ml-1">%</span>
+              <div className="flex items-center gap-5">
+                <div className="w-12 h-12 box-border rounded-full flex items-center justify-center bg-yellow-400 shadow-inner shadow-yellow-600 ">
+                  <UilArrowDown color="white" />
                 </div>
-                <div className="flex items-baseline gap-3">
-                  <div className="mb-3 text-2xl capitalize">
-                    {getHumidityRating(humidity)}
-                  </div>
-                  {getIcon(getHumidityRating(humidity))}
-                </div>
+                <div className="text-2xl">{sunset}</div>
               </div>
-            </Card>
-            <Card title="Visibility">
-              <div className="">aaa</div>
-            </Card>
-            <Card title="Air Quality">
-              <div className="">aaa</div>
-            </Card>
-          </div>
+            </div>
+          </Card>
+          <Card title="Humidity">
+            <div className="flex flex-col justify-between h-full">
+              <div className="text-5xl flex mt-8">
+                {humidity}
+                <span className="text-xl font-semibold ml-1">%</span>
+              </div>
+              <div className="flex items-baseline gap-3">
+                <div className="mb-3 text-2xl capitalize">
+                  {getHumidityRating(humidity)}
+                </div>
+                {getIcon(getHumidityRating(humidity))}
+              </div>
+            </div>
+          </Card>
+          <Card title="Visibility">
+            <div className="">aaa</div>
+          </Card>
+          <Card title="Air Quality">
+            <div className="">aaa</div>
+          </Card>
         </div>
       </div>
     </div>
