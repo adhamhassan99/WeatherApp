@@ -14,7 +14,7 @@ export default function MainHeader({}: Props) {
   };
 
   return (
-    <div className="flex mb-14 justify-between items-center">
+    <div className="flex mb-14 justify-between items-center container">
       <div className="daySelector flex gap-4">
         <NavLink
           style={({ isActive }) =>
@@ -58,7 +58,7 @@ export default function MainHeader({}: Props) {
           onClick={() => handleSelection("c")}
           className={`text-2xl ${
             selectedBtn === "c" ? "bg-black text-white" : "text-black bg-white"
-          }  font-bold  w-14 h-14 rounded-full`}
+          }  font-bold  w-12 h-12 rounded-full`}
         >
           <div className="">
             <sup>o</sup> C
@@ -68,7 +68,7 @@ export default function MainHeader({}: Props) {
           onClick={() => handleSelection("f")}
           className={`text-2xl ${
             selectedBtn !== "c" ? "bg-black text-white" : "text-black bg-white"
-          }  font-bold  w-14 h-14 rounded-full`}
+          }  font-bold  w-12 h-12 rounded-full`}
         >
           <sup>o</sup>F
         </button>

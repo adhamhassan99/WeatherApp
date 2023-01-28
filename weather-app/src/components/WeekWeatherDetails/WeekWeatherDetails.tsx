@@ -13,7 +13,7 @@ export default function WeekWeatherDetails({}: Props) {
   const { temp } = useSelector((state) => state.temperature);
 
   return (
-    <div className="flex gap-2 flex-wrap h-min justify-between">
+    <div className="flex flex-wrap h-min justify-between">
       {forecastday.map((item) => {
         const date = new Date(item.date_epoch * 1000);
         return (
