@@ -28,7 +28,7 @@ export default function SearchBar({}: Props) {
     queryKey: ["autoComp", value],
     queryFn: () =>
       axios.get(
-        `http://api.weatherapi.com/v1/search.json?key=f87e3f6eaec34528a9902910231401&q=${value}`
+        `https://api.weatherapi.com/v1/search.json?key=f87e3f6eaec34528a9902910231401&q=${value}`
       ),
     onSuccess: (data) => {
       console.log(data.data);
