@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-// import { ReactComponent as SearchIcon } from "../../assets/searchIcon.svg";
 type Props = {};
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setQueryKey } from "../../slices/temperatureSlice";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
-import Icon from "@mui/material/Icon";
-
 import axios from "axios";
 import { Autocomplete } from "@mui/material";
+
 export default function SearchBar({}: Props) {
   const { queryKey } = useSelector((state) => state.temperature);
   const [value, setValue] = useState(queryKey);
   const [options, setOptions] = useState([]);
   const [hover, setHover] = useState(false);
   const dispatch = useDispatch();
-  // dispatch(setQueryKey(event.target.value))
+
   const handleEnter = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       dispatch(setQueryKey(event.target.value));
